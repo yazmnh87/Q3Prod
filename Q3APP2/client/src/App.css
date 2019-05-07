@@ -6,7 +6,7 @@
 
 .register{
   background-color: #F5F6F3;
-  height: 100%;
+  height: 100vh;
 }
 
 .banner{
@@ -24,17 +24,9 @@
 
 .lgcontainer{
   background-color: #A4C24B;
-  height: 300px;
-  width: 25%;
-  margin-top: 100px;
-  justify-content: center;
 }
 .rgcontainer{
   background-color: #A4C24B;
-  height: 450px;
-  width: 50%;
-  margin-top: 50px;
-  justify-content: center;
 }
 
 .lgbutton{
@@ -82,7 +74,7 @@
 }
 
 .inputrgsz{
-  width: 25%;
+  width: 50%;
 }
 
 input[type=range].rgcolor {
@@ -174,4 +166,9 @@ input[type=range].rgcolor:focus::-ms-fill-upper {
 .graphContainer{
   width: 800px;
   height: 400px;
+}
+
+.questcontainer{
+  height: 100vh;
+  background-color: #F5F6F3;
 }

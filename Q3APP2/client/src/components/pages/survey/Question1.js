@@ -93,47 +93,45 @@ counterdec = () => {
        if(this.state.counter === 0){  
           return (
               <div className="d-flex justify-content-center">
-                <button className="btn btn-lg mr-4" onClick={this.counter}>Next</button>
+                <button className="btn btn-lg btn-outline-dark mt-4" onClick={this.counter}>Next</button>
               </div> 
           )
       } else if (this.state.counter < 11){
         return (
-          <>
-            <div className="d-flex justify-content-end">
-            <button className="btn btn-lg mr-4" onClick={this.counter}>Next</button>
-            </div>
-            <div className="d-flex justify-content-start">
+            <div className="d-flex justify-content-between">
             <button className="btn btn-lg mr-4" onClick={this.counterdec}>Previous</button>
+            <button className="btn btn-lg mr-4" onClick={this.counter}>Next</button>
             </div> 
-          </>
         ) 
       } else {
         return (
-          <>
-          <div className="d-flex justify-content-start">
+          <div className="d-flex justify-content-between">
             <button className="btn btn-lg mr-4" onClick={this.counterdec}>Previous</button>
-          </div>
-          <div className="d-flex justify-content-end">
           <button className="btn btn-lg mr-4" onClick={this.finishSurv}>Finish</button>
           </div>
-          </>
         )
      }
     })()}
-    <span>Question {this.state.counter + 1} of 12</span>
+    <div className="questcontainer">
+          <div className="ml-4 mt-3">
+          <span style={{fontSize: 18}}>Question {this.state.counter + 1} of 12</span>
+          </div>
+          <div className="questcontainer d-flex flex-column align-items-center mt-4">
+          <div>
+              <p style={{fontSize: 25}}>{this.props.questions[0] !== undefined ? this.props.questions[this.state.counter].question : null}
+              </p>
+          </div>
+        <div className="inputrgsz mt-3">
+          <input 
+            type="range" 
+            min="1" 
+            max="10" 
+            value={this.state.response.resval} 
+            className="form-control-range rgcolor" 
+            onChange={this.resval}/>
+        </div>
+        </div>
     </div>
-    <div>
-        <p>{this.props.questions[0] !== undefined ? this.props.questions[this.state.counter].question : null}</p>
-    </div>
-    <div className="form-group inputrgsz">
-      <input 
-        type="range" 
-        min="1" 
-        max="10" 
-        value={this.state.response.resval} 
-        className="form-control-range rgcolor" 
-        onChange={this.resval}>
-      </input>
     </div>
   </React.Fragment>
     )

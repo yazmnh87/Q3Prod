@@ -30,22 +30,20 @@ onChange = (e) => {
         <img src={img} alt="" className="img-fluid"></img>
         </div>
         </div>
-        <div className="d-flex justify-content-center">
-        <div className="lgcontainer d-flex justify-content-center">
+        <div className="d-flex justify-content-center mt-5">
+        <div className=" card lgcontainer d-flex justify-content-center pb-3 pt-3">
+            <div className="ml-4 mr-4">
             <form onSubmit={this.onSubmit}>
-                <div className="mt-4">
                 <label className="d-block">Email</label>
                 <input name="email" value={this.state.email} style={{width: '300px', height: '40px'}} onChange={this.onChange}></input>
-                </div>
-                <div className="mt-2">
                 <label className="d-block">Password</label>
                 <input type="password" name="password" value={this.state.password} style={{width: '300px', height: '40px'}} onChange={this.onChange}></input>
-                </div>
                 <button className="lgbutton btn btn-block mt-4">Login</button>
                 <div className="d-flex justify-content-center">
                 <Link to="/register"><button className="btn btn-outline-dark mt-2">Register</button></Link>
                 </div>
             </form>
+            </div>
             
         </div>
         </div>

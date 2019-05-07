@@ -43,8 +43,8 @@ class Register extends Component {
         <img src={img} alt="" className="img-fluid"></img>
         </div>
         </div>
-        <div className="d-flex justify-content-center">
-        <div className="rgcontainer d-flex justify-content-center">
+        <div className="d-flex justify-content-center mt-5">
+        <div className="card rgcontainer d-flex justify-content-center pt-3 pb-3">
             <form onSubmit={this.onSubmit}>
                 <div className="container">
                 <div className="d-inline-block form-group mt-2 mr-4">
@@ -68,6 +68,9 @@ class Register extends Component {
                     <input type="password" className="form-control" name="password2" value={this.state.password2} style={{width: '420px', height: '40px'}} onChange={this.onChange}></input>
                 </div>
                 <button className="mt-3 btn btn-block btn-outline-dark">Register</button>
+                <div className="d-flex justify-content-center">
+                <button className="btn btn-light mt-3" onClick={(res) => this.props.history.push('/')}>Cancel</button>
+                </div>
                 </div>
             </form>
             
