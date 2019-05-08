@@ -95,15 +95,18 @@ router.post('/login', (req, res) => {
                     lastName: user.lastName,
                     avatar: user.avatar 
                 }
+               
                 //sign Token
                 jwt.sign(payload, 
                     keys.secretOrKey, 
                     { expiresIn: 3600 },
                     (err, token) => {
+                        
                       res.send({
                           success: true,
                           token: 'Bearer ' + token,
-                          payload: payload.id
+                          payload: payload 
+                            
                       })
                     })
             } else {

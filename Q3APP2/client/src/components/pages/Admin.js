@@ -113,15 +113,16 @@ class Admin extends Component {
                     {userArr}
                 </select>
                 </div>
-                <div className="form-group w-25 pt-3 pl-5">
+                <div className="form-group w-25 pt-2 pl-5">
                     <select className="form-control" onChange={this.submitSurveyDate}> 
                         <option>Date</option>
                         {surveyArr}
                     </select>
                 </div>
+                <div className="d-flex justify-content-center">
                 {this.state.show ? <div className="graphContainer">
                     <Radar data={this.state.chartData.data}/>
-                </div> : null}
+                </div> : null}</div>
          </div>
       </>
     )

@@ -165,8 +165,8 @@ input[type=range].rgcolor:focus::-ms-fill-upper {
 }
 
 .graphContainer{
-  width: 800px;
-  height: 400px;
+  width: 600px;
+  height: 300px;
   background-color: #F5F6F3;
 }
 

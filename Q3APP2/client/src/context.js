@@ -13,7 +13,8 @@ export class Provider extends Component {
       totalResponses: [],
       users: [],
       userResponses: [],
-      allUsers: []
+      allUsers: [],
+      currentUserName: ""
     }
 
     nextQSet = (pageres, f) => {
@@ -51,10 +52,16 @@ checkResLen = () => {
       .then(res => {
         console.log(res.data)
         const { token, payload } = res.data
+        const { firstName, lastName } = payload
+        
         localStorage.setItem('jwttoken', token)
-        localStorage.setItem('user', payload)
+        localStorage.setItem('user', payload.id)
+        localStorage.setItem('firstname', payload.firstName)
+        localStorage.setItem('lastname', payload.lastName)
+
         this.setState({
-          currentUser: localStorage.getItem("user")
+          currentUser: localStorage.getItem("user"),
+          currentUserName: localStorage.getItem("firstname")
         })
     })
   }
@@ -75,6 +82,7 @@ checkResLen = () => {
   }
 
   getUserSurveys = (id) => {
+    console.log('contextrunning')
     axios.get(`/api/responses/${id}`)
     .then(res => this.setState({
       userResponses: res.data
@@ -94,6 +102,7 @@ checkResLen = () => {
       totalResponses: res.data
     }))
   }
+
 
   deleteUser = (id) => {
     console.log('deleting user')
