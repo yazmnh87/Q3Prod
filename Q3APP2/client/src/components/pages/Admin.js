@@ -103,21 +103,26 @@ class Admin extends Component {
         return <option key={user._id} value={user._id} >{user.firstName} {user.lastName}</option>
     })
 
-    return (
-        
+    return (  
       <>
         <Navbar />
-        <select onChange={this.onChange}>
-        <option></option>
-            {userArr}
-        </select>
-        <select onChange={this.submitSurveyDate}> 
-            <option>Date</option>
-            {surveyArr}
-        </select>
-        {this.state.show ? <div className="graphContainer">
-             <Radar data={this.state.chartData.data}/>
-         </div> : null}
+        <div className="Lanbackground">
+            <div className="form-group w-25 pt-3 pl-5">
+                <select className="form-control" onChange={this.onChange}>
+                <option>User</option>
+                    {userArr}
+                </select>
+                </div>
+                <div className="form-group w-25 pt-3 pl-5">
+                    <select className="form-control" onChange={this.submitSurveyDate}> 
+                        <option>Date</option>
+                        {surveyArr}
+                    </select>
+                </div>
+                {this.state.show ? <div className="graphContainer">
+                    <Radar data={this.state.chartData.data}/>
+                </div> : null}
+         </div>
       </>
     )
   }

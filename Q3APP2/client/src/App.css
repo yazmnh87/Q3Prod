@@ -66,6 +66,7 @@
 
 .Lanbackground{
   background-color: #F5F6F3;
+  height: 100vh;
 }
 
 
@@ -166,9 +167,16 @@ input[type=range].rgcolor:focus::-ms-fill-upper {
 .graphContainer{
   width: 800px;
   height: 400px;
+  background-color: #F5F6F3;
 }
 
 .questcontainer{
   height: 100vh;
   background-color: #F5F6F3;
 }
+
+/* .chartjs-size-monitor{
+display: flex;
+justify-content: 'center';
+
+} */

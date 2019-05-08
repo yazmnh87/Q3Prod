@@ -99,15 +99,15 @@ counterdec = () => {
       } else if (this.state.counter < 11){
         return (
             <div className="d-flex justify-content-between">
-            <button className="btn btn-lg mr-4" onClick={this.counterdec}>Previous</button>
-            <button className="btn btn-lg mr-4" onClick={this.counter}>Next</button>
+            <button className="btn btn-lg btn-outline-dark mt-3 ml-4" onClick={this.counterdec}>Previous</button>
+            <button className="btn btn-lg btn-outline-dark mt-3 mr-4" onClick={this.counter}>Next</button>
             </div> 
         ) 
       } else {
         return (
           <div className="d-flex justify-content-between">
-            <button className="btn btn-lg mr-4" onClick={this.counterdec}>Previous</button>
-          <button className="btn btn-lg mr-4" onClick={this.finishSurv}>Finish</button>
+            <button className="btn btn-lg btn-outline-dark mt-3 ml-4" onClick={this.counterdec}>Previous</button>
+          <button className="btn btn-lg btn-outline-dark mt-3 mr-4" onClick={this.finishSurv}>Finish</button>
           </div>
         )
      }
@@ -118,7 +118,7 @@ counterdec = () => {
           </div>
           <div className="questcontainer d-flex flex-column align-items-center mt-4">
           <div>
-              <p style={{fontSize: 25}}>{this.props.questions[0] !== undefined ? this.props.questions[this.state.counter].question : null}
+              <p className="ml-4 mr-4" style={{fontSize: 25}}>{this.props.questions[0] !== undefined ? this.props.questions[this.state.counter].question : null}
               </p>
           </div>
         <div className="inputrgsz mt-3">

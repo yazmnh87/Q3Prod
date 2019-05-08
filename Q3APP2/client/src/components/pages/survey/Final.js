@@ -70,17 +70,19 @@ class Final extends Component {
 
     return (
       <>
-        <Navbar />
-        <div className="Lanbackground">
-    <div>
-        <span>Thank you for taking a survey</span>
-        <button>Logout</button>
-    </div>
-    <div className="graphContainer">
-    {this.state.responses.length !== 0 ? <Radar data={this.state.data}/> : <span>No Survey Data to Display</span>}
-    </div>
-   </div>
-   </>
+      <Navbar />
+      <div className="Lanbackground">
+            <div className="d-flex justify-content-center pt-4">
+              <span style={{fontSize: 25}}>Thank you for taking a survey</span>
+            </div>
+            <div className="d-flex justify-content-center">
+            <button className="btn btn-dark mt-3">Logout</button>
+            </div>
+        <div className="d-flex justify-content-center mt-4">
+        {this.state.responses.length !== 0 ? <div className="graphContainer d-flex justify-content-center border border-dark p-4"><Radar className="d-flex justify-content-center m-3" data={this.state.data}/></div> : <div className="d-flex justify-content-center"><span className="mt-5">No Survey Data to Display</span></div>}
+        </div>
+      </div>
+      </>
     )
   }
 }
