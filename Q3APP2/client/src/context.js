@@ -81,13 +81,13 @@ checkResLen = () => {
     .then(res => console.log(res))
   }
 
-  getUserSurveys = (id) => {
-    console.log('contextrunning')
-    axios.get(`/api/responses/${id}`)
-    .then(res => this.setState({
-      userResponses: res.data
-    })
-    )}
+  // getUserSurveys = (id) => {
+  //   console.log('contextrunning')
+  //   axios.get(`/api/responses/${id}`)
+  //   .then(res => this.setState({
+  //     userResponses: res.data
+  //   })
+  //   )}
 
   getQuestions = () => {
     axios.get('/api/questions')
