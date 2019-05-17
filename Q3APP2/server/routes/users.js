@@ -127,7 +127,7 @@ router.delete('/:id', (req, res) => {
 
 router.get('/allusers', (req, res) => {
     // console.log(req)
-    const query = User.find().select("firstName lastName _id permission date email")
+    const query = User.find().select("firstName lastName _id permission date email isActive")
     query.exec((err, users) => {
         console.log(users)
         if(err) return res.status(500).send(err)

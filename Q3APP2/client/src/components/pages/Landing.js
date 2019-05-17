@@ -40,10 +40,11 @@ class Landing extends Component {
 const mappedDates = this.state.userResponses !== undefined ?
     this.state.userResponses.map(date => {
       return (
-        <div className="card bg-primary" style={{minWidth: 200, minHeight: 200}}>
+        <div className="card" style={{Width: 200, Height: 200, backgroundColor: "#7D7D7D"}}>
         <div className="card-header bg-light">
         <div className="card-body">
         <p className="card-text">Date: {date.date.slice(0, 10)}</p>
+        <button>View Graph</button>
         </div>
         </div>
         </div>
@@ -67,8 +68,12 @@ const mappedDates = this.state.userResponses !== undefined ?
             </div>
             </div>
             :
-            <div className="container">
+            <div className="container mt-5">
+            <h1>Previous Surverys</h1>
+            <button className="btn btn-sm" style={{backgroundColor: "#7D7D7D"}} onClick={() => this.setState({displaySurveys: false})}>close</button>
+            <div className="row mb-3">
             {mappedDates}
+            </div>
             </div>
         }
         </>
