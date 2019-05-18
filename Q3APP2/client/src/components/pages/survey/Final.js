@@ -37,12 +37,12 @@ class Final extends Component {
     if(this.state.responses.length !== 0){
     this.setState(() => ({
             data: {
-                labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running', 'hello', 'wft', 'isthisworking', '11', '12'],
+                labels: ['Sleep', 'Energy', 'global physical well-being', 'calm confidence', "interest, pleasure, joy", 'coping', 'interpersonal communication', 'social and professional support network', 'life balance', 'cognition organization', 'priorities', 'life purpose' ],
                 datasets:[
                   {
                     label: 'Student Survey Data',
                     backgroundColor: 'rgba(179,181,198,0.2)',
-                    borderColor: 'rgba(179,181,198,1)',
+                    borderColor: 'rgba(66, 81, 43, 1)',
                     pointBackgroundColor: 'rgba(179,181,198,1)',
                     pointBorderColor: '#fff',
                     pointHoverBackgroundColor: '#fff',

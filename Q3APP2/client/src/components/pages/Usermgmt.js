@@ -6,7 +6,10 @@ class Usermgmt extends Component {
     state= {
         firstName: "",
         lastName: "",
-        email: ""
+        email: "",
+        password: "",
+        password2: "",
+        confirmPW: false
     }
 
 
@@ -51,18 +54,26 @@ class Usermgmt extends Component {
         <div className="ml-5">
         <span style={{fontSize: 20}} className="border border-outline-light">Add New User</span>
         <div className="mt-3">
+        <div>
         <label>First Name</label>
         <input onChange={this.onChange} name="firstName" value={this.state.firstName} className="mr-3"></input>
         <label>Last Name</label>
         <input onChange={this.onChange} name="lastName" value={this.state.lastName} className="mr-3"></input>
         <label>Email</label>
         <input onChange={this.onChange} name="email" value={this.state.email} className="mr-3"></input>
+        <label>Password</label>
+        <input onChange={this.onChange} name="password" value={this.state.password} onBlur={()=> this.setState({confirmPW: true})}></input>
+        </div>
         <select className="mr-3">
             <option>Admin</option>
             <option>User</option>
         </select>
         <button onClick={""} className="btn btn-outline-dark">Add User</button>
         </div>
+        {this.state.confirmPW ?
+        <div>
+        <label>Confirm Password</label>
+        <input onChange={this.onChange} name="password2" value={this.state.password2}></input> </div> : null}
         </div>
         <div className="container mt-4">
         <div className="mb-2">

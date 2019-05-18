@@ -8,7 +8,8 @@ state = {
   counter: 0,
   response: {
     resval: 5,
-    questionId: ""
+    questionId: "",
+    questionSubCat: ""
     
   }
 }
@@ -42,7 +43,7 @@ counter = () => {
     counter: prevState.counter + 1,
     response: {
       ...prevState.response,
-      questionId: this.props.questions[prevState.counter]._id
+      questionId: this.props.questions[prevState.counter]._id,
     }
     
   }), () => {
@@ -62,7 +63,8 @@ finishSurv = () => {
     counter: prevState.counter,
     response: {
       ...prevState.response,
-      questionId: this.props.questions[prevState.counter]._id
+      questionId: this.props.questions[prevState.counter]._id,
+
     }
   }), () => {
     this.props.nextQSet(this.state.response, () => this.props.history.push("/final"))
@@ -121,7 +123,8 @@ counterdec = () => {
               <p className="ml-4 mr-4" style={{fontSize: 25}}>{this.props.questions[0] !== undefined ? this.props.questions[this.state.counter].question : null}
               </p>
           </div>
-        <div className="inputrgsz mt-3">
+        <div className="inputrgsz mt-3 d-inline-flex justify-content-between">
+        <span>Couldn't be Worse</span>
           <input 
             type="range" 
             min="1" 
@@ -129,6 +132,7 @@ counterdec = () => {
             value={this.state.response.resval} 
             className="form-control-range rgcolor" 
             onChange={this.resval}/>
+            <span>Couldn't be Better</span>
         </div>
         </div>
     </div>
