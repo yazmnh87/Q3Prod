@@ -195,8 +195,11 @@ justify-content: 'center';
 
 @media screen and (max-width: 600px){
   .img2{
-    max-width: 100%;
+    max-width: 74%;
     height: auto;
+    position: absolute;
+    top: 19px;
+    left: 74px;
   }
   .navbar-toggler {
     padding: .25rem .75rem;
@@ -209,7 +212,19 @@ justify-content: 'center';
     position: absolute;
     top: 27px;
     left: 17px;
-
  }
+ .navlinkcont {
+   margin-bottom: 59px;
+ }
+
+}
+@media screen and (max-width: 300px){
+  .img2{
+    max-width: 74%;
+    height: auto;
+    position: absolute;
+    top: 89px;
+    left: 34px;
+  }
 
 }

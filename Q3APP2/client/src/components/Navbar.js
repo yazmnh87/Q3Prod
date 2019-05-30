@@ -5,7 +5,7 @@ import img from '../img/Q3+Partners_1.png'
 class Navbar extends Component {
   render() {
     return (
-        <nav className="navbar navbar-expand-sm navbar-light">
+        <nav className="navbar navbar-expand-sm navbar-light d-flex justify-content-center">
         <div className="navcontainer">
             <div className="navlinkcont"><Link className="navbar-brand" to="/"><img className="img2" src={img} alt=""></img></Link></div>
             <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">

@@ -14,8 +14,8 @@ export class Provider extends Component {
       users: [],
       userResponses: [],
       allUsers: [],
-      currentUserName: "",
-      currentUserLastName: ""
+      currentUserName: localStorage.firstname || '',
+      currentUserLastName: localStorage.lastname || ''
     }
 
     nextQSet = (pageres, f) => {
@@ -59,13 +59,13 @@ checkResLen = () => {
         localStorage.setItem('user', payload.id)
         localStorage.setItem('firstname', payload.firstName)
         localStorage.setItem('lastname', payload.lastName)
-
-        this.setState({
+        // console.log(prevState);
+        this.setState(prevState => ({
           currentUser: localStorage.getItem("user"),
           currentUserName: localStorage.getItem("firstname"),
           currentUserLastName: localStorage.getItem("lastname")
 
-        })
+        }))
     })
   }
   

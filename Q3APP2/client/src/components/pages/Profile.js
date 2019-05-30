@@ -25,24 +25,34 @@ import { withProvider } from '../../context'
             <Navbar />
             <div className="profilebackground">
             <div className="col sm 8">
-            <div className="row">
-            <label>First Name</label>
-            <input className="form-control" value={this.state.firstName} name="" onChange={this.onChange} disabled/>
-            <label>Last Name</label>
-            <input className="form-control" value={this.state.lastName} name="" onChange={this.onChange} disabled/>
+            <div className="row d-flex justify-content-center align-items-center ml-3 mr-3 pt-5">
+            <label>First Name: </label>
+            <input className="form-control col sm 4 mr-3" value={this.state.firstName} name="" onChange={this.onChange} disabled/>
+            <label>Last Name: </label>
+            <input className="form-control col sm 4 ml-3 mr-3" value={this.state.lastName} name="" onChange={this.onChange} disabled/>
+            <label>DOB: </label>
+            <input className="form-control col sm 4 mr-3 ml-3" value={""} name="" onChange={this.onChange}/>
             </div>
             </div>
-            <label>Email</label>
-            <input className="form-control" value={this.state.email} name="" onChange={this.onChange}/>
-            <label>Phone Number</label>
-            <input className="form-control" value={""} name="" onChange={this.onChange}/>
-            <label>Birthday</label>
-            <input className="form-control" value={""} name="" onChange={this.onChange}/>
-            <label>Career Interests</label>
-            <input className="form-control" value={""} name="" onChange={this.onChange}/>
-            <label>Hobbies</label>
-            <input className="form-control" value={""} name="" onChange={this.onChange}/>
-            <div>
+            {/* <div className='col d-flex justify-content-center mt-3'> */}
+            <div className="row ml-5 mt-4 justify-content-center">
+            <label>Email: </label>
+            <input className="form-control w-50" value={this.state.email} name="" onChange={this.onChange}/>
+            </div>
+            <div className="row ml-4 mt-4 justify-content-center">
+            <label>Phone: </label>
+            <input className="form-control w-50" value={""} name="" onChange={this.onChange}/>
+            </div>
+            {/* </div> */}
+            <div className="row ml-4 mt-4 justify-content-center">
+            <label>Career Interests: </label>
+            <input className="form-control w-50" value={""} name="" onChange={this.onChange}/>
+            </div>
+            <div className="row ml-4 mt-4 justify-content-center">
+            <label>Hobbies: </label>
+            <input className="form-control w-50" value={""} name="" onChange={this.onChange}/>
+            </div>
+            <div className="row ml-4 mt-4 justify-content-center">
                 <button>Updated</button>
             </div>
             </div>
