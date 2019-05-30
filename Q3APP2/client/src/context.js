@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+// import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import axios from 'axios'
 const Context = React.createContext();
 
@@ -14,7 +14,8 @@ export class Provider extends Component {
       users: [],
       userResponses: [],
       allUsers: [],
-      currentUserName: ""
+      currentUserName: "",
+      currentUserLastName: ""
     }
 
     nextQSet = (pageres, f) => {
@@ -43,7 +44,7 @@ checkResLen = () => {
 
     componentDidMount(){
       this.getQuestions()
-      this.getResponses()
+      // this.getResponses()
       this.getUsers()
     }
 
@@ -61,19 +62,28 @@ checkResLen = () => {
 
         this.setState({
           currentUser: localStorage.getItem("user"),
-          currentUserName: localStorage.getItem("firstname")
+          currentUserName: localStorage.getItem("firstname"),
+          currentUserLastName: localStorage.getItem("lastname")
+
         })
     })
   }
   
   registerUser = (user) => {
     return axios.post('/api/users/register', user)
-    .then((res) => {return res})
-    .catch(err => console.log(err)
+    .then((r) => {
+      // console.log(r)
+      this.setState(s => ({
+      allUsers: [...s.allUsers, r.data]
+  }))
+}
+)
+    // .catch((err) => 
     // this.setState({
-    //     errors: err.response.data
+    //     errors: err.response.data,
+    //     allUsers: user
     // })
-    )
+    // )
   }
 
   getSelectedSurvey = (date) => {

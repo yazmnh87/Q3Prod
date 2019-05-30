@@ -8,6 +8,7 @@ import Question1 from './components/pages/survey/Question1'
 import Final from './components/pages/survey/Final'
 import Admin from './components/pages/Admin'
 import Usermgmt from './components/pages/Usermgmt'
+import Profile from './components/pages/Profile'
 import { Provider } from './context'
 import './App.css';
 
@@ -24,6 +25,7 @@ class App extends Component {
         <Route exact path="/final" component={Final}/>
         <Route exact path="/admin" component={Admin} />
         <Route exact path="/usermgmt" component={Usermgmt} />
+        <Route exact path="/profile" component={Profile} />
       </Router>
       </Provider>
     );

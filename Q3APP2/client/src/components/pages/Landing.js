@@ -68,7 +68,7 @@ const mappedDates = this.state.userResponses !== undefined ?
         return (
         <div className="Lanbackground">
             <div className="pl-5 pt-3">
-            <h2>Welcome! {this.props.currentUserName}</h2>    
+            <h2>Welcome {this.props.currentUserName}!</h2>    
             </div> 
             <div className="d-flex flex-column">
             <div className="ml-5 mt-3">       

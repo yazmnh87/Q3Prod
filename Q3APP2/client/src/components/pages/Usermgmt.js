@@ -9,9 +9,16 @@ class Usermgmt extends Component {
         email: "",
         password: "",
         password2: "",
-        confirmPW: false
+        permission: "",
+        confirmPW: false,
+        newUserAdded: []
     }
 
+    componentDidUpdate(){
+       return ( 
+       this.state.newUserAdded
+       )
+    }
 
     componentDidMount(){
         this.props.getAllUsers()
@@ -24,23 +31,45 @@ class Usermgmt extends Component {
        })
    }
 
+   onSubmit = () => {
+       
+    const newUser = {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        password: this.state.password,
+        password2: this.state.password2,
+        permission: this.state.permission
+    }
+    const login = login
+  this.props.registerUser(newUser).then(() => this.setState({
+    newUserAdded: newUser,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    password2: "",
+    permission: ""
+}))
+}
  
 
        
    
 
   render(props) {
-    const users = this.props.allUsers.map(user => {
+      console.log(this.props.allUsers)
+    const users = !!this.props.allUsers && this.props.allUsers.map(user => {
         return (<>
-                    <tr className="mt-2">
+                    <tr className="mt-2" key={user}>
                         <td className="pr-5">{user.firstName + " " + user.lastName}</td>
                         <td className="pr-5">{user.email}</td>
                         <td className="pr-5">{user.date.slice(0,10)}</td>
                         <td className="pr-5"><strong>{user.permission}</strong></td>
                         <td className="pr-5" style={user.isActive ? {color: "green"} : {color: "red"}}>{user.isActive ? "Active" : "InActive"}</td>
-                        <button className="btn btn-outline-info mr-3">Edit</button>
-                        <button className="btn btn-light btn-outline-dark text-dark mr-3">Disable</button>
-                        <button className="btn btn-danger" onClick={() => this.props.deleteUser(user._id)}>Delete</button>
+                        <td><button className="btn btn-outline-info mr-3">Edit</button></td>
+                        <td><button className="btn btn-light btn-outline-dark text-dark mr-3">Disable</button></td>
+                        <td><button className="btn btn-danger" onClick={() => this.props.deleteUser(user._id)}>Delete</button></td>
                     </tr>
                 </>
         )    
@@ -51,9 +80,10 @@ class Usermgmt extends Component {
       <>
         <Navbar/>
         <div className="usermgmt pt-3">
+        <div className="d-flex justify-content-between col-sm-12">
         <div className="ml-5">
         <span style={{fontSize: 20}} className="border border-outline-light">Add New User</span>
-        <div className="mt-3">
+        <div className="mt-3 row">
         <div>
         <label>First Name</label>
         <input onChange={this.onChange} name="firstName" value={this.state.firstName} className="mr-3"></input>
@@ -64,22 +94,26 @@ class Usermgmt extends Component {
         <label>Password</label>
         <input onChange={this.onChange} name="password" value={this.state.password} onBlur={()=> this.setState({confirmPW: true})}></input>
         </div>
-        <select className="mr-3">
-            <option>Admin</option>
-            <option>User</option>
+        <label>Role:</label>
+        <select className="mr-3" value={this.state.permission} onChange={(e) => this.setState({permission: e.target.value})}>
+            <option></option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
         </select>
-        <button onClick={""} className="btn btn-outline-dark">Add User</button>
+        <button onClick={()=> this.onSubmit()} className="btn btn-outline-dark">Add User</button>
         </div>
         {this.state.confirmPW ?
-        <div>
+        <div className="d-flex justify-content-end">
         <label>Confirm Password</label>
-        <input onChange={this.onChange} name="password2" value={this.state.password2}></input> </div> : null}
+        <input onChange={this.onChange} name="password2" value={this.state.password2}></input></div> : null}
+        </div>
         </div>
         <div className="container mt-4">
         <div className="mb-2">
         <span style={{fontSize: 24, color: "#42512B"}} className="border-bottom border-dark">Users</span>
         </div>
-        <table>
+        
+        { users ? <table>
             <thead>
                 <tr>
                     <th className="border-bottom border-dark">User</th>
@@ -92,7 +126,7 @@ class Usermgmt extends Component {
             <tbody>
                 {users}
             </tbody>
-        </table>
+        </table> : <div>Loading...</div>}
         </div>
         </div>
       </>
