@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://Q3user:Q3user@q3cluster-ssxmd.mongodb.net/test?retryWrites=true&w=majority"
+}
