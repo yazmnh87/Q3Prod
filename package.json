@@ -1,0 +1,11 @@
+{
+  "name": "q3app2",
+  "version": "1.0.0",
+  "description": "Q3Student partner app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "William Violette",
+  "license": "ISC"
+}
